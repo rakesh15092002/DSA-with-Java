@@ -1,23 +1,20 @@
 package Strings;
 import java.util.Scanner;
 public class RemoveOuterMostParenthesis {
-    public static String removeOuterParen(String str){
-        int count = 0;
-        String res = "";
-        for(int i = 0; i<str.length();i++){
-            char ch = str.charAt(i);
-            if(ch ==')') count--;
-            if(count >0 ) res += ch; 
-            if(ch=='(') count ++;
+    public static String remove(String str ){
+        int count=0;
+        String ans = "";
+        for(char ch : str.toCharArray()){
+            if(ch == ')') count --;
+            if(count!=0) ans += ch;
+            if(ch =='(') count ++;
         }
-        return res;
+        return ans;
     }
-
-    public static void main(String[] args) {
+     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the string: ");
         String str = sc.nextLine();
-        System.out.println(removeOuterParen(str));
-        
+        String res = remove(str);
+        System.out.println(res);
     }
 }
